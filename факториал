@@ -1,0 +1,17 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void main(){
+	setlocale(LC_ALL, "Russian");
+	int x;
+	int pr = 1;
+	cout << "Введите x: ";
+	cin >> x;
+	for (int i = 1; i <= x; i++){
+		pr *= i;
+	}
+	cout << "Факториал " << x << " = " << pr << endl;
+	_getch();
+}
