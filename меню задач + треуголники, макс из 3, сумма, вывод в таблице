@@ -17,7 +17,7 @@ void main(){
 	cout << "1. Нарисовать 4 треугольника." << endl;
 	cout << "2. Найти сумму чисел от 20 до 35." << endl;
 	cout << "3. Из 3х чисел найти максимальное с помощью двух переменных." << endl;
-	cout << "4. Вывод по столбцам чисел от 1 до 10 в перовм сьолбец, от 100 до 90 через 10 в другом столбце." << endl;
+	cout << "4. Вывод по столбцам чисел от 1 до 10 в перовм столбце, от 100 до 90 через 10 в другом столбце." << endl;
 	cin >> x;
 	switch (x)
 	{
@@ -53,11 +53,11 @@ void main(){
 }
 
 void tr4(){
-	int y = 3;
+	int y = 0, j, i;
 	cout << "Введите количество звездочек в треуголнике: ";
 	cin >> y;
-	for (int j = y; j >= 0; j--){
-		for (int i = 1; i <= j; i++){
+	for (j = y; j >= 0; j--){
+		for (i = 1; i <= j; i++){
 			cout << "*" ;
 			}
 		cout << endl;
@@ -65,8 +65,8 @@ void tr4(){
 
 	cout << endl;
 
-	for (int j = 1; j <= y; j++){
-		for (int i = 1; i <= j; i++){
+	for (j = 1; j <= y; j++){
+		for (i = 1; i <= j; i++){
 			cout << "*" ;
 			}
 		cout << endl;
@@ -74,10 +74,10 @@ void tr4(){
 
 	cout << endl;
 
-	for (int j = y; j >= 0; j--){
-		for (int i = y - j - 1 ; i >= 0; i--){
-			if ( i == 2)
-				cout << "YYY";
+	for (j = 1; j <= y; j++){
+		for (i = 1 ; i <= y; i++){
+			if ( i <= y - j)
+				cout << " ";
 			else 
 				cout << "*" ;
 			}
@@ -86,28 +86,59 @@ void tr4(){
 
 	cout << endl;
 
-	for (int j = 1; j <= y; j++){
-		for (int i = 1; i <= j; i++){
-			cout << "*" ;
+	for (j = 1; j <= y; j++){
+		for (i = 1 ; i <= y; i++){
+			if ( i >= j)
+				cout << "*";
+			else 
+				cout << " " ;
 			}
 		cout << endl;
-		}	
+		}		
 	_getch();
 	}
 
 	
 
 	void SumSomeNum(){
-	cout <<"Вы выбрали 2 пункт." <<endl;
+	int x = 0, y = 0, sum = 0;
+	cout << "Введите число, с которого начинается суммирование:";
+	cin >> x ;
+	cout << "Введите число, на котором заканнчивается суммирование:";
+	cin >> y ;
+	cout << "Сумма чисел от " << x;
+	while (x <= y){
+		sum += x;
+		x++;
+		}
+	cout << " до " << y << " = " << sum;
 	_getch();
 	}
 
 	void MaxOf3(){
-	cout <<"Вы выбрали 3 пункт." <<endl;
+	int x, y, z, tmp = -2147483648;
+	cout << "Введите число первое число:";
+	cin >> x ;
+	cout << "Введите число первое число:";
+	cin >> y ;
+	cout << "Введите число первое число:";
+	cin >> z ;
+	if (tmp <= x)
+		tmp = x;
+	if (tmp <= y)
+		tmp = y;
+	if (tmp <= z)
+		tmp = z;
+	cout << "Максимальное из чисел " << x << ", " << y << ", " << z <<" число - " << tmp;
 	_getch();
 	}
 
 	void OutputCol(){
-	cout <<"Вы выбрали 4 пункт." <<endl;
+	int x = 1, y = 100;
+	while (x <= 10 && y >= 10){
+		cout << x << "\t" << y << endl;
+		x++;
+		y -= 10;
+	}
 	_getch();
 	}
