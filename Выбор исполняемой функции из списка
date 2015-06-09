@@ -1,0 +1,75 @@
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+
+using namespace std;
+
+void tr4();
+void SumSomeNum();
+void MaxOf3();
+void OutputCol();
+
+
+void main(){
+	setlocale(LC_ALL, "Russian");
+	int x, y;
+	cout << "Введите номер задачи, которую вы хотите выполнить:\n";
+	cout << "1. Нарисовать 4 треугольника." << endl;
+	cout << "2. Найти сумму чисел от 20 до 35." << endl;
+	cout << "3. Из 3х чисел найти максимальное с помощью двух переменных." << endl;
+	cout << "4. Вывод по столбцам чисел от 1 до 10 в перовм сьолбец, от 100 до 90 через 10 в другом столбце." << endl;
+	cin >> x;
+	switch (x)
+	{
+	case 1: 
+		{
+		tr4();
+		break;
+		}
+	case 2:
+		{
+		SumSomeNum();
+		break;
+		}
+	case 3:
+		{
+		MaxOf3();
+		break;
+		}
+	case 4:
+		{
+		OutputCol();
+		break;
+		}
+	default:
+		{
+		cout <<"Неправильный ввод." << endl;
+		_getch();
+		}
+
+	}
+
+
+}
+
+void tr4(){
+	cout <<"Вы выбрали первый пункт." <<endl;
+	_getch();
+	}
+
+	
+
+	void SumSomeNum(){
+	cout <<"Вы выбрали 2 пункт." <<endl;
+	_getch();
+	}
+
+	void MaxOf3(){
+	cout <<"Вы выбрали 3 пункт." <<endl;
+	_getch();
+	}
+
+	void OutputCol(){
+	cout <<"Вы выбрали 4 пункт." <<endl;
+	_getch();
+	}
