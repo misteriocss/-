@@ -21,31 +21,31 @@ void main(){
 	cin >> x;
 	switch (x)
 	{
-	case 1: 
-		{
-		tr4();
-		break;
-		}
+	case 1:
+	{
+			  tr4();
+			  break;
+	}
 	case 2:
-		{
-		SumSomeNum();
-		break;
-		}
+	{
+			  SumSomeNum();
+			  break;
+	}
 	case 3:
-		{
-		MaxOf3();
-		break;
-		}
+	{
+			  MaxOf3();
+			  break;
+	}
 	case 4:
-		{
-		OutputCol();
-		break;
-		}
+	{
+			  OutputCol();
+			  break;
+	}
 	default:
-		{
-		cout <<"Неправильный ввод." << endl;
-		_getch();
-		}
+	{
+			   cout << "Неправильный ввод." << endl;
+			   _getch();
+	}
 
 	}
 
@@ -58,82 +58,82 @@ void tr4(){
 	cin >> y;
 	for (j = y; j >= 0; j--){
 		for (i = 1; i <= j; i++){
-			cout << "*" ;
-			}
+			cout << "*";
+		}
 		cout << endl;
-		}	
+	}
 
 	cout << endl;
 
 	for (j = 1; j <= y; j++){
 		for (i = 1; i <= j; i++){
-			cout << "*" ;
-			}
-		cout << endl;
+			cout << "*";
 		}
-
-	cout << endl;
-
-	for (j = 1; j <= y; j++){
-		for (i = 1 ; i <= y; i++){
-			if ( i <= y - j)
-				cout << " ";
-			else 
-				cout << "*" ;
-			}
 		cout << endl;
-		}	
-
-	cout << endl;
-
-	for (j = 1; j <= y; j++){
-		for (i = 1 ; i <= y; i++){
-			if ( i >= j)
-				cout << "*";
-			else 
-				cout << " " ;
-			}
-		cout << endl;
-		}		
-	_getch();
 	}
 
-	
+	cout << endl;
 
-	void SumSomeNum(){
+	for (j = 1; j <= y; j++){
+		for (i = 1; i <= y; i++){
+			if (i <= y - j)
+				cout << " ";
+			else
+				cout << "*";
+		}
+		cout << endl;
+	}
+
+	cout << endl;
+
+	for (j = 1; j <= y; j++){
+		for (i = 1; i <= y; i++){
+			if (i >= j)
+				cout << "*";
+			else
+				cout << " ";
+		}
+		cout << endl;
+	}
+	_getch();
+}
+
+
+
+void SumSomeNum(){
 	int x = 0, y = 0, sum = 0;
 	cout << "Введите число, с которого начинается суммирование:";
-	cin >> x ;
+	cin >> x;
 	cout << "Введите число, на котором заканнчивается суммирование:";
-	cin >> y ;
+	cin >> y;
 	cout << "Сумма чисел от " << x;
 	while (x <= y){
 		sum += x;
 		x++;
-		}
+	}
 	cout << " до " << y << " = " << sum;
 	_getch();
-	}
+}
 
-	void MaxOf3(){
-	int x, y, z, tmp = -2147483648;
-	cout << "Введите число первое число:";
-	cin >> x ;
-	cout << "Введите число первое число:";
-	cin >> y ;
-	cout << "Введите число первое число:";
-	cin >> z ;
+void MaxOf3(){
+	int x, tmp = -2147483648;
+	cout << "Введите первое число:";
+	cin >> x;
 	if (tmp <= x)
 		tmp = x;
-	if (tmp <= y)
-		tmp = y;
-	if (tmp <= z)
-		tmp = z;
-	cout << "Максимальное из чисел " << x << ", " << y << ", " << z <<" число - " << tmp;
+	cout << "Введите второе число:";
+	cin >> x;
+	if (tmp <= x)
+		tmp = x;
+	cout << "Введите третье число:";
+	cin >> x;
+	if (tmp <= x)
+		tmp = x;
+	cout <<"Максимальное число " << tmp;
 	_getch();
-	}
+}
 
-	void OutputCol(){
+void OutputCol(){
 	int x = 1, y = 100;
 	while (x <= 10 && y >= 10){
 		cout << x << "\t" << y << endl;
@@ -141,4 +141,4 @@ void tr4(){
 		y -= 10;
 	}
 	_getch();
-	}
+}
