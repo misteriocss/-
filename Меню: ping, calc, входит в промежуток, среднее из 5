@@ -1,0 +1,140 @@
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+
+using namespace std;
+
+void InSomN();
+void pingF();
+void SrB();
+void ChNch();
+void CalcM();
+
+void main(){
+	setlocale(LC_ALL, "Russian");
+	int x;
+	bool cl = 1;
+	cout << "1. Сказать находится ли число в промежутке двух чисел." << endl;
+	cout << "2. Запустить пинг facebook.com" << endl;
+	cout << "3. Завершить программу." << endl;
+	cout << "4. Средний балл студента не меньше 4." << endl;
+	cout << "5. Четное умножить на 3, нечетное разделить на 2." << endl;
+	cout << "6. Калькулятор." << endl;
+	while (cl){
+		cout << "Введите номер задачи, которую вы хотите выполнить:\n";
+		cin >> x;
+		switch (x)
+		{
+		case 1:
+			{
+				  InSomN();
+				  break;
+			}
+		case 2:
+			{
+				  pingF();
+				  break;
+			}
+		case 3:
+			{
+				  cl = 0;
+				  break;
+			}
+		case 4:
+		{
+				  SrB();
+				  break;
+		}
+		case 5:
+		{
+				  ChNch();
+				  break;
+		}
+		case 6:
+		{
+				  CalcM();
+				  break;
+		}
+		default:
+			{
+				   cout << "Неправильный ввод." << endl;
+				   _getch();
+			}
+		}
+
+	}
+}
+
+	void InSomN(){
+		int x, y, z;
+		cout << "Введите первое число: ";
+		cin >> x;
+		cout << "Введите второе число : ";
+		cin >> y;
+		cout << "Введите третье число: ";
+		cin >> z;
+		if (((z >= x) && (z <= y)) || ((z <= x) && (z >= y)))
+			cout << "Число " << z << " входит в промежуток чисел между " << x << " и " << y;
+		else
+			cout << "Число " << z << " не входит в промежуток чисел между " << x << " и " << y;
+		_getch();
+	}
+
+	void pingF(){
+		system("ping facebook.com");
+		_getch();
+	}
+
+	void SrB(){
+		int i, sum = 0;
+		float sr = 0;
+		int arr[5];
+		cout << "Введите 5 чисел:" << endl;
+
+		for (i = 0; i < 5; i++) {
+			cout << "[" << i + 1 << "]" << ": ";
+			cin >> arr[i];
+		}
+
+		for (i = 0; i < 5; i++)
+			sum += arr[i];
+		
+		sr = sum / 5.0;
+		if (sr < 4)
+			cout << "Вы не допущены  экзамену" << endl;
+		else
+			cout << "Вы допущены  экзамену" << endl; 
+		_getch();
+	}
+
+	void ChNch(){
+		int x, y = 0;
+		cout << "Введите число: ";
+		cin >> x;
+		if ((x % 2) == 0)
+			cout << x * 3 <<endl;
+		else
+			cout << x / 2.0 <<endl;
+		_getch();
+	}
+
+	void CalcM(){
+		float a, b;
+		char x;
+		float res;
+		cout << "Введите первое число: ";
+		cin >> a;
+		cout << "Введите второе число: ";
+		cin >> b;
+		cout << "Какое арифметическое действие вы хотите произвести?" << endl;
+		cin >> x;
+		if (x == '+')
+			cout << a << "+" << b << " = " << a + b << endl;
+		if (x == '-')
+			cout << a << "-" << b << " = " << a - b << endl;
+		if (x == '/')
+			cout << a << "/" << b << " = " << a / b << endl;
+		if (x == '*')
+			cout << a << "*" << b << " = " << a * b <<endl;
+		_getch();
+	}
