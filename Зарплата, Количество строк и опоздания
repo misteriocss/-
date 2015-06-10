@@ -1,0 +1,86 @@
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+
+using namespace std;
+
+void Str();
+void Op();
+void Doh();
+
+
+
+void main(){
+	setlocale(LC_ALL, "Russian");
+	int x, y;
+	cout << "Введите номер задачи, которую вы хотите выполнить:\n";
+	cout << "1. Найти количество строк, зная доход и опоздания." << endl;
+	cout << "2. Найти количество опозданий, зная доход и строки." << endl;
+	cout << "3. Найти доход, зная строки и опоздания." << endl;
+	cin >> x;
+	switch (x)
+	{
+	case 1:
+	{
+			  Str();
+			  break;
+	}
+	case 2:
+	{
+			  Op();
+			  break;
+	}
+	case 3:
+	{
+			  Doh();
+			  break;
+	}
+	default:
+	{
+			   cout << "Неправильный ввод." << endl;
+			   _getch();
+	}
+
+	}
+
+
+}
+
+void Str(){
+	int CStr, Doh, plstr = 50;
+	int COp;
+	cout << "Введите количество опозданий: ";
+	cin >> COp;
+	cout << "Введите желаемый доход: ";
+	cin >> Doh;
+	CStr = (Doh + ((COp % 3) * 20))*(100 / plstr);
+	cout << "Количество необходимых строк = " << CStr;
+	_getch();
+}
+
+
+
+void Op(){
+	int CStr, Doh, plstr = 50;
+	int COp;
+	cout << "Введите количество строк: ";
+	cin >> CStr;
+	cout << "Введите желаемый доход: ";
+	cin >> Doh;
+	COp = Doh / (CStr / plstr) * 3 / 20;
+	cout << "Количество опозданий = " << COp;
+	_getch();
+}
+
+void Doh(){
+	int CStr, Doh, plstr = 50;
+	int COp;
+	cout << "Введите количество опозданий: ";
+	cin >> COp;
+	cout << "Введите количество строк: ";
+	cin >> CStr;
+	Doh = CStr*plstr / 100 - (COp % 3) * 20;
+	cout << "Доход = " << Doh;
+	_getch();
+}
+
