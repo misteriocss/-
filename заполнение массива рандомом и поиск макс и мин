@@ -1,0 +1,39 @@
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+#include <iomanip>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+void main(){
+	setlocale(LC_ALL, "Russian");
+	int n, cmax = 0, cmin = 0;
+	cout << "Введите количество элементов: ";
+	cin >> n;
+	int *arr = new int[n];
+	int i;
+	srand(time(0));
+	for (i= 0; i < n; i++){
+		arr[i] = rand()% 100;
+	}
+
+	for (i = 0; i < n; i++){
+		cout << arr[i] << " ";
+		if (arr[cmax] <= arr[i])
+			cmax = i;
+		if (arr[cmin] >= arr[i])
+			cmin = i;
+	}
+
+	cout << "\nМасимальный элемент: " << arr[cmax] << endl;
+	cout << "Минимальный элемент: " << arr[cmin] << endl;
+	cout << "Расстояние между max и min элементами: " << abs(cmax - cmin) << endl;
+
+	
+
+	delete[]arr;
+	_getch();
+}
