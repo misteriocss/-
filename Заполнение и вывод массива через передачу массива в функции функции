@@ -1,0 +1,36 @@
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+
+using namespace std;
+
+void foo3st(int* arr, int n);
+void print(int* arr, int n);
+
+//заполнение и вывод массива вводимого количества степеней 3
+void main(){
+	setlocale(LC_ALL, "Russian");
+	int n;
+	cout << "Введите необходимое количество элементов: ";
+	cin >> n;
+	int *arr = new int[n];
+	cout << "Вывод массива, состоящего из " << n << " степеней тройки." << endl;
+	foo3st(arr, n);
+	print(arr, n);
+	delete[] arr;
+	_getch();
+}
+
+void foo3st(int* arr, int n){
+	arr[0] = 3;
+	for (int i = 1; i < n; i++)
+		arr[i] = arr[i - 1] * 3;
+}
+
+void print(int* arr, int n){
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << "\t";
+	cout << endl;
+}
+
+
