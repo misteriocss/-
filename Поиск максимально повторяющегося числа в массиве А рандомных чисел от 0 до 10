@@ -1,0 +1,64 @@
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+#include <ctime>
+
+using namespace std;
+
+void foor(int* A, int n);
+void fooC(int* A, int* B);
+void print(int* arr, int n);
+void zeroArr(int* B, int n);
+int findmaxCount(int* B, int n);
+
+
+ 
+void main(){
+	setlocale(LC_ALL, "Russian");
+	int nA = 100, nB = 10;
+	int *A = new int[nA];
+	int *B = new int[nB];
+	foor(A, nA);
+	print(A, nA);
+	zeroArr(B, nB);
+	fooC(A, B);
+	print(B, nB);
+	int Im = findmaxCount(B, nB);
+	cout << "Элемент, который повторяется чаще всего - " << Im << endl;
+	delete[] A;
+	delete[] B;
+	_getch();
+}
+
+void fooC(int* A, int* B){
+	for (int i = 0; i < 100; i++)
+		B[A[i]] += 1;
+}
+
+void foor(int* A, int n){
+	srand(time(0));
+	for (int i = 0; i < n; i++){
+		A[i] = rand() % 10;
+	}
+}
+
+void print(int* arr, int n){
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << "\t";
+	cout << endl;
+}
+
+void zeroArr(int* B, int n){
+	for (int i = 0; i < n; i++)
+		B[i] = 0;
+}
+
+int findmaxCount(int* B, int n){
+	int max = 0;
+	for (int i = 0; i < n; i++){
+		if (B[max] <= B[i])
+			max = i;
+	}
+	return max;
+
+}
