@@ -7,8 +7,8 @@ using namespace std;
 
 void foor(int* A);
 void foosum(int* A, int* B);
-void printA(int* arr);
-void printB(int* B);
+void print(int* arr, int n);
+
 
 //заполнение и вывод массива 
 void main(){
@@ -16,9 +16,9 @@ void main(){
 	int *A = new int[20];
 	int *B = new int[10];
 	foor(A);
-	printA(A);
+	print(A, 20);
 	foosum(A, B);
-	printB(B);
+	print(B, 10);
 	delete[] A;
 	delete[] B;
 	_getch();
@@ -36,14 +36,9 @@ void foor(int* A){
 	}
 }
 
-void printA(int* arr){
-	for (int i = 0; i < 20; i++)
+void print(int* arr, int n){
+	for (int i = 0; i < n; i++)
 		cout << arr[i] << "\t";
 	cout << endl;
 }
 
-void printB(int* B){
-	for (int i = 0; i < 10; i++)
-		cout << B[i] << "\t";
-	cout << endl;
-}
