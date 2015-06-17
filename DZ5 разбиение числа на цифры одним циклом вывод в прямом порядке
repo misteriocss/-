@@ -1,0 +1,134 @@
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+
+using namespace std;
+
+void sum7();
+void tr4();
+void CfN();
+
+void main(){
+	setlocale(LC_ALL, "Russian");
+	int x;
+	bool cl = 1;
+	cout << "1. на промежутке от 0 до 100 найти сумму чисел оканчивающихся на 7" << endl;
+	cout << "2. 4 треугольника" << endl;
+	cout << "3. сумма цифр числа вывод цифр на экран   123789 1 2 3 7 8 9." << endl;
+	cout << "4. Закрыть программу." << endl;
+	while (cl){
+		cout << "Введите номер задачи, которую вы хотите выполнить:\n";
+		cin >> x;
+		switch (x)
+		{
+		case 1:
+		{
+				  sum7();
+				  break;
+		}
+		case 2:
+		{
+				  tr4();
+				  break;
+		}
+		case 3:
+		{
+				  CfN();
+				  break;
+		}
+		case 4:
+		{
+				  cl = 0;
+				  break;
+		}
+		default:
+			{
+				   cout << "Неправильный ввод." << endl;
+				   _getch();
+			}
+		}
+
+	}
+}
+
+void sum7(){
+	int sum = 0;
+	for (int i = 1; i <= 100; i++){
+		if (i % 10 == 7)
+			sum += i;
+	}
+	cout << "Сумма чисел, оканчивающихся на 7, на промежутке от 0 до 100 = " << sum << endl;
+}
+
+
+void CfN(){
+	int n, c;
+	int i = 100000000;
+	int sum = 0, resi;
+	cout << "Введите число: ";
+	cin >> n;
+	while (i > 0){
+		if (n / i){
+			resi = (n / i) % 10;
+			sum += resi;
+			cout << resi << " ";
+			i /= 10;
+		}
+		else
+			i /= 10;
+
+	}
+	cout << "\nСумма цифр = " << sum << endl;
+	
+	_getch();
+}
+
+
+
+
+void tr4(){
+	int y = 0, j, i;
+	cout << "Введите количество звездочек в треуголнике: ";
+	cin >> y;
+	for (j = y; j >= 0; j--){
+		for (i = 1; i <= j; i++){
+			cout << "*";
+		}
+		cout << endl;
+	}
+
+	cout << endl;
+
+	for (j = 1; j <= y; j++){
+		for (i = 1; i <= j; i++){
+			cout << "*";
+		}
+		cout << endl;
+	}
+
+	cout << endl;
+
+	for (j = 1; j <= y; j++){
+		for (i = 1; i <= y; i++){
+			if (i <= y - j)
+				cout << " ";
+			else
+				cout << "*";
+		}
+		cout << endl;
+	}
+
+	cout << endl;
+
+	for (j = 1; j <= y; j++){
+		for (i = 1; i <= y; i++){
+			if (i >= j)
+				cout << "*";
+			else
+				cout << " ";
+		}
+		cout << endl;
+	}
+	_getch();
+}
+
