@@ -1,0 +1,49 @@
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+#include <ctime>
+
+using namespace std;
+
+void foor(int* A);
+void foosum(int* A, int* B);
+void printA(int* arr);
+void printB(int* B);
+
+//заполнение и вывод массива 
+void main(){
+	setlocale(LC_ALL, "Russian");
+	int *A = new int[20];
+	int *B = new int[10];
+	foor(A);
+	printA(A);
+	foosum(A, B);
+	printB(B);
+	delete[] A;
+	delete[] B;
+	_getch();
+}
+
+void foosum(int* A, int* B){
+	for (int i = 0; i < 10; i++)
+		B[i] = A[i * 2] + A[(i * 2) + 1];
+}
+
+void foor(int* A){
+	srand(time(0));
+	for (int i = 0; i < 20; i++){
+		A[i] = rand() % 100;
+	}
+}
+
+void printA(int* arr){
+	for (int i = 0; i < 20; i++)
+		cout << arr[i] << "\t";
+	cout << endl;
+}
+
+void printB(int* B){
+	for (int i = 0; i < 10; i++)
+		cout << B[i] << "\t";
+	cout << endl;
+}
