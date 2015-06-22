@@ -1,0 +1,57 @@
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+#include <ctime>
+
+using namespace std;
+
+void foor(int* A, int n); //функция заполнения массива рандомными числами 
+void shift(int* A, int n, int st); //функция смещения массива[n] на заданное количество st
+void print(int* arr, int n); //функция вывода массива [n]
+
+
+//заполнение и вывод массива 
+void main() {
+	setlocale(LC_ALL, "Russian");
+	int n,st;
+	cout << "Введите количество элементов массива: ";
+	cin >> n;
+	int *A = new int[n];
+	foor(A, n);
+	cout << "Начальный масиив:" << endl;
+	print(A, n);
+	cout << "Введите шаг смещения массива: ";
+	cin >> st;
+	shift(A, n, st);
+	print(A, n);
+	delete[] A;
+	_getch();
+}
+
+
+void shift(int* A, int n, int st) {
+	int *B = new int[n];
+	int i, resSt = st%n;
+	for (i = 0; i < n - resSt; i++)
+		B[i + resSt] = A[i];
+	for (int j = 0, i = n - resSt; i < n; i++, j++)
+		B[j] = A[i];
+	for (i = 0; i < n; i++)
+		A[i] = B[i];
+	delete[] B;
+}
+
+
+void foor(int* A, int n) {
+	srand(time(0));
+	for (int i = 0; i < n; i++) {
+		A[i] = rand() % 100;
+	}
+}
+
+void print(int* arr, int n) {
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << "\t";
+	cout << endl;
+}
+
