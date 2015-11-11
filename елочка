@@ -1,0 +1,33 @@
+#include <iostream>
+#include <conio.h>
+#include <ctime>
+
+using namespace std;
+
+using namespace std;
+
+//нарисовать елочку с игрушками
+
+void main(){
+	setlocale(LC_ALL, "Russian");
+	int h;
+	srand(time(0));
+	do{
+		cout << "Какую по высоте елочку хотите вывести на экран? Высота не больше 8 и не меньше 2!" << endl;
+		cin >> h;
+	} while (h < 2 || h > 8);
+	int i, j;
+	for (i = 1; i < h + 1; ++i){
+		for (j = 0; j < h - i; ++j)
+			cout << ' ';
+		for (j = 0; j < 1 + 2 * (i - 1); ++j){
+			if (rand() % 3)
+				cout << '$';  // вывод игрушки 1 раз из 3 в среднем
+			else
+				cout << '*';
+		}
+		cout << endl;
+	}
+
+	_getch();
+}
